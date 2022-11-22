@@ -4,18 +4,17 @@ pipeline {
     stages {
         stage('Install Web Api') {
             steps {
+                dir('demo-api'){
     
                   sh 'npm install'
-                
+                }
             }
         }
 
 
         stage('Archive Web Api'){
             steps {
-          
-                sh 'tar -czvf demo-api-main.gz demo-api-main'
-                
+                sh 'tar -czvf demo-api.gz demo-api'
             }
         }
 
@@ -23,7 +22,7 @@ pipeline {
         stage('Copy artifacts Web Api'){
             steps {
           
-                sh 'cp demo-api-main.gz ansible/roles/deploy-web-api/files'
+                sh 'cp demo-api.gz ansible/roles/deploy-web-api/files'
                 
             }
         }
