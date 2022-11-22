@@ -22,7 +22,7 @@ pipeline {
         stage('Copy artifacts Web Api'){
             steps {
           
-                sh 'cp demo-api.gz ansible/roles/deploy-web-api/files'
+                sh 'cp demo-api.gz ansible/roles/deploy-app/files'
                 
             }
         }
