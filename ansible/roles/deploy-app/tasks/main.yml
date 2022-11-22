@@ -6,14 +6,14 @@
 
 - name: Unarchive Web App
   unarchive:
-    src: demo-api-main.gz
+    src: demo-api.gz
     dest: ~/web-api
 
 - name: "start app"
   shell: |       
       pm2 start npm -f ./app.js -- run start
   args: 
-    chdir: ~/web-api/demo-api-main
+    chdir: ~/web-api/demo-api
 
 - name: "List processes"
   shell: |      
