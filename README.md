@@ -67,7 +67,7 @@ pipeline {
 
     * Make sure the Generic Webhook Trigger is installed, and then use the below image as guide to configure it to parse the contents of the webhook payload. We will use that as condition for our ansible 
 
-    ![Jenkins 2](./images/jen-2.jpg?raw=true "jenkins") 
+    ![Jenkins 2](./images/jen-2.jpeg?raw=true "jenkins") 
     ![Jenkins 3](./images/jen-3.jpeg?raw=true "jenkins") 
     ![Jenkins 4](./images/jen-4.jpeg?raw=true "jenkins") 
     in the below image, the token should be any random string
