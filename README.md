@@ -61,6 +61,7 @@ pipeline {
 * Install Generic Webhook Trigger, Ansible and Build Discarder jenkins plugin
 https://www.jenkins.io/doc/book/managing/plugins/
 
+
 * Create a credential containing the Private keys of the target EC2. See here 
 https://www.jenkins.io/doc/book/using/using-credentials/
 
@@ -94,14 +95,16 @@ stage (' Configure server ') {
     ![Jenkins 2](./images/jen-2.jpeg?raw=true "jenkins") 
     ![Jenkins 3](./images/jen-3.jpeg?raw=true "jenkins") 
     ![Jenkins 4](./images/jen-4.jpeg?raw=true "jenkins") 
-    in the below image, the token should be any random string
+    in the below image, the token should be any random string you would need it in the subsequent steps
     ![Jenkins 5](./images/jen-5.jpeg?raw=true "jenkins") 
 
     * Here you just set up the github repo with your credentials. This lets jenkins clones the repo from github. See here for hot to create github credentials on jenkins https://www.jenkins.io/doc/book/using/using-credentials/. 
 
-    Keep in mind that your password should be yout github auth token. You can see this guide on how to create github access token https://www.jenkins.io/doc/book/using/using-credentials/
+    Keep in mind that your password should be your github auth token. You can see this guide on how to create github access token https://www.jenkins.io/doc/book/using/using-credentials/
 
     ![Jenkins 6](./images/jen-6.jpeg?raw=true "jenkins") 
+
+* Then you need to create a github webhook use http://<JENKINS:PORT>/generic-webhook-trigger/invoke?token=<SECRETTOKEN> as the payload url, and application/json as the content type see here https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks, choose the option "Let me select individual events." and select only "Pull request".
 
 * To test it, on the dashboard, click on the project and click on Build with parameters, and click on build.
 
