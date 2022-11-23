@@ -68,20 +68,20 @@ pipeline {
     * Make sure the Generic Webhook Trigger is installed, and then use the below image as guide to configure it to parse the contents of the webhook payload. We will use that as condition for our ansible 
 
     ![Jenkins 2](./images/jen-2.jpg?raw=true "jenkins") 
-    ![Jenkins 3](./images/jen-3.jpg?raw=true "jenkins") 
-    ![Jenkins 4](./images/jen-4.jpg?raw=true "jenkins") 
+    ![Jenkins 3](./images/jen-3.jpeg?raw=true "jenkins") 
+    ![Jenkins 4](./images/jen-4.jpeg?raw=true "jenkins") 
     in the below image, the token should be any random string
-    ![Jenkins 5](./images/jen-5.jpg?raw=true "jenkins") 
+    ![Jenkins 5](./images/jen-5.jpeg?raw=true "jenkins") 
 
     * Here you just set up the github repo with your credentials. This lets jenkins clones the repo from github. See here for hot to create github credentials on jenkins https://www.jenkins.io/doc/book/using/using-credentials/. 
 
     Keep in mind that your password should be yout github auth token. You can see this guide on how to create github access token https://www.jenkins.io/doc/book/using/using-credentials/
 
-    ![Jenkins 6](./images/jen-6.jpg?raw=true "jenkins") 
+    ![Jenkins 6](./images/jen-6.jpeg?raw=true "jenkins") 
 
 * To test it, on the dashboard, click on the project and click on Build with parameters, and click on build.
 
-    ![Jenkins 7](./images/jen-7.jpg?raw=true "jenkins") 
+    ![Jenkins 7](./images/jen-7.jpeg?raw=true "jenkins") 
 
 
 
