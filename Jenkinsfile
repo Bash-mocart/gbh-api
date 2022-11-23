@@ -46,7 +46,7 @@ pipeline {
                ansiblePlaybook become: true, credentialsId: '22a3984f-4c4e-4139-b1cf-ab1cf7753ddd', disableHostKeyChecking: true, installation: 'ansible-playbook', inventory: 'ansible/inventory.txt', playbook: 'ansible/configure-server.yml', sudoUser: null
             }
 
-        }
+        }  // replace the credentialsId with yours
 
         stage (' Deploy app ') {
               when {
@@ -56,7 +56,7 @@ pipeline {
                ansiblePlaybook become: true, credentialsId: '22a3984f-4c4e-4139-b1cf-ab1cf7753ddd', disableHostKeyChecking: true, installation: 'ansible-playbook', inventory: 'ansible/inventory.txt', playbook: 'ansible/deploy-app.yml', sudoUser: null
             }
 
-        }
+        } // replace the credentialsId with yours
         
     }
 }

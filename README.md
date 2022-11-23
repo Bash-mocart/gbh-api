@@ -28,7 +28,7 @@ Ansible runs only after the PR is merged. This was achieved using a Generic Webh
                ansiblePlaybook become: true, credentialsId: '22a3984f-4c4e-4139-b1cf-ab1cf7753ddd', disableHostKeyChecking: true, installation: 'ansible-playbook', inventory: 'ansible/inventory.txt', playbook: 'ansible/configure-server.yml', sudoUser: null
             }
 
-        }
+        }  // replace the credentialsId with yours
 
         stage (' Deploy app ') {
               when {
@@ -38,7 +38,8 @@ Ansible runs only after the PR is merged. This was achieved using a Generic Webh
                ansiblePlaybook become: true, credentialsId: '22a3984f-4c4e-4139-b1cf-ab1cf7753ddd', disableHostKeyChecking: true, installation: 'ansible-playbook', inventory: 'ansible/inventory.txt', playbook: 'ansible/deploy-app.yml', sudoUser: null
             }
 
-        }
+        } // replace the credentialsId with yours
+
 ```
 
 Builds are discarded after one day using a Build Discarder jenkins plugin https://plugins.jenkins.io/build-discarder/
@@ -57,7 +58,30 @@ pipeline {
 
 * Install Jenkins, Npm, and Nodejs v16.13.1 in the instance you just created https://nodejs.org/en/download/package-manager/, https://www.jenkins.io/doc/book/installing/linux/
 
-* Install Generic Webhook Trigger and Build Discarder jenkins plugin
+* Install Generic Webhook Trigger, Ansible and Build Discarder jenkins plugin
+https://www.jenkins.io/doc/book/managing/plugins/
+
+* Create a credential containing the Private keys of the target EC2. See here 
+https://www.jenkins.io/doc/book/using/using-credentials/
+
+* Get the credential id and replace check on 
+
+```
+
+stage (' Configure server ') {
+              when {
+                  expression { return params.current_status == "closed" && params.merged == true }
+              }
+            steps {
+               ansiblePlaybook become: true, credentialsId: '22a3984f-4c4e-4139-b1cf-ab1cf7753ddd', disableHostKeyChecking: true, installation: 'ansible-playbook', inventory: 'ansible/inventory.txt', playbook: 'ansible/configure-server.yml', sudoUser: null
+            }
+
+        }  // replace the credentialsId with yours
+
+```
+
+
+
 
 * Create a jenkins pipeline and set it up as follows
 
