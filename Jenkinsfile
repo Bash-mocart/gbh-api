@@ -9,7 +9,7 @@ pipeline {
             steps {
                 dir('demo-api'){
     
-                  sh 'npm install'
+                  sh 'npm ci'
                 }
             }
         }
