@@ -42,7 +42,7 @@ Ansible runs only after the PR is merged. This was achieved using a Generic Webh
 
 ```
 
-Builds are discarded after one day using a Build Discarder jenkins plugin https://plugins.jenkins.io/build-discarder/
+Builds are discarded after one day using a Build Discarder jenkins plugin https://plugins.jenkins.io/build-discarder/. Be sure to install it.
 
 ```
 pipeline {
